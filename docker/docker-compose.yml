@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ../apps/api
+      dockerfile: ../../docker/api.Dockerfile
+    container_name: chjkanban-api
+    restart: unless-stopped
+    ports:
+      - "3021:3000"
+    environment:
+      - DB_PATH=/data/kanban.db
+      - NODE_ENV=production
+    volumes:
+      - kanban_data:/data
+
+  web:
+    build:
+      context: ../apps/web
+      dockerfile: ../../docker/web.Dockerfile
+    container_name: chjkanban-web
+    restart: unless-stopped
+    ports:
+      - "3020:4321"
+    environment:
+      - PUBLIC_API_URL=http://localhost:3021
+    #depends_on:
+    #  - api
+
+volumes:
+  kanban_data:

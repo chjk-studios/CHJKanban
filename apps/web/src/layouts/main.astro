@@ -1,0 +1,23 @@
+---
+import '../styles/main.css';
+
+const backendUrl = import.meta.env.BACKEND_URL;
+
+---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CHJKanban</title>
+        <link rel="icon shortcut" href="/img/logo_color_16x.png" type="image/png" sizes="16x16" />
+        <link rel="icon shortcut" href="/img/logo_color_32x.png" type="image/png" sizes="32x32" />
+        <link rel="icon shortcut" href="/img/logo_color_64x.png" type="image/png" sizes="64x64" />
+    </head>
+    <body>
+        <slot />
+        <script define:vars={{ backendUrl }}>
+            window.__BACKEND_URL = backendUrl;
+        </script>
+    </body>
+</html>

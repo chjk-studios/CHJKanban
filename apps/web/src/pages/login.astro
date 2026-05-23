@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/main.astro";
+import { Icon } from 'astro-icon/components';
+import "../styles/login.css";
+import "../styles/modals.css";
+import "../styles/code.css";
+---
+<Layout>
+	<div class="login-shell">
+		<button class="login-back" onclick="window.location.href = '/';"><Icon name="lucide:corner-down-left"/> Back</button>
+		<main class="login-panel">
+			<header class="login-header">
+				<img src="/img/logo_color_64x.png" height="36" width="36" alt="CHJKanban logo" class="login-logo" />
+				<div>
+					<p class="login-brand">CHJKanban</p>
+					<p class="login-subtitle">Sign in</p>
+				</div>
+			</header>
+			<form class="login-form">
+				<label class="field">
+					<span>Email</span>
+					<input type="email" name="email" autocomplete="email" required />
+				</label>
+				<label class="field">
+					<span>Password</span>
+					<input type="password" name="password" autocomplete="current-password" required />
+				</label>
+				
+				<button class="btn primary" type="button">Sign in</button>
+
+				<div class="login-row">
+					<a class="link" href="/reset" data-modal-open="forgot-password-modal">Forgot password?</a>
+				</div>
+			</form>
+		</main>
+		<footer class="login-links page-footer">
+			<a class="link login-footer-link" href="https://github.com/chjk-studios" target="_blank" rel="noreferrer">
+				<Icon name="simple-icons:github" size="14" aria-hidden="true" />
+				GitHub
+			</a>
+			<span class="login-divider">•</span>
+			<p class="link login-footer-link">
+				v0.1.0
+			</p>
+			<span class="login-divider">•</span>
+			<a class="link login-footer-link" href="https://ban.chjk.xyz" target="_blank" rel="noreferrer">
+				<Icon name="lucide:globe" size="14" aria-hidden="true" />
+				Website
+			</a>
+		</footer>
+	</div>
+	<div class="modal" id="forgot-password-modal" data-modal aria-hidden="true">
+		<div class="modal__overlay" data-modal-overlay></div>
+		<div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="forgot-password-title" tabindex="-1">
+			<div class="modal__header">
+				<h2 class="modal__title" id="forgot-password-title">Forgot Password</h2>
+			</div>
+			<div class="modal__body">
+				<pre><code>aaa</code></pre>
+				<code>aaa</code>
+			</div>
+			<div class="modal__actions">
+				<button class="btn ghost" data-modal-close><Icon name="lucide:x" size=14 /> Exit</button>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/js/modals.js"></script>
+	<script type="module" src="/js/auth.js"></script>
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/main.astro";
+import { Icon } from 'astro-icon/components';
+import { DotPulse } from 'ldrs/react';
+import "../styles/login.css";
+---
+<Layout>
+	<div class="login-shell">
+		<button class="login-back" onclick="window.location.href = '/';"><Icon name="lucide:corner-down-left"/> Back</button>
+		<main class="login-panel">
+			<header class="login-header">
+				<img src="/img/logo_color_128x.png" height="36" width="36" alt="CHJKanban logo" class="login-logo" />
+				<div>
+					<p class="login-brand">CHJKanban</p>
+					<p class="login-subtitle">Setup</p>
+				</div>
+			</header>
+			<form class="login-form">
+				<label class="field">
+					<span>Admin account Email</span>
+					<input type="email" name="email" autocomplete="email" required />
+				</label>
+				<label class="field">
+					<span>Admin account Password</span>
+					<input type="password" name="password" autocomplete="current-password" required />
+				</label>
+				
+				<button class="btn primary" type="button">Sign in</button>
+			</form>
+		</main>
+
+	
+		
+		<footer class="login-links page-footer">
+			<a class="link login-footer-link" href="https://github.com/chjk-studios" target="_blank" rel="noreferrer">
+				<Icon name="simple-icons:github" size="14" aria-hidden="true" />
+				GitHub
+			</a>
+			<span class="login-divider">•</span>
+			<a class="link login-footer-link" href="https://ban.chjk.xyz" target="_blank" rel="noreferrer">
+				<Icon name="lucide:globe" size="14" aria-hidden="true" />
+				Website
+			</a>
+		</footer>
+	</div>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/dotPulse.js"></script>
+	<script type="module" src="/js/auth.js"></script>
+</Layout>

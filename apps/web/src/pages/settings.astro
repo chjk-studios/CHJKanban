@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/main.astro";
+import Sidebar from "../components/settingssidebar.astro";
+import { Icon } from 'astro-icon/components';
+import '../styles/topbar.css';
+import '../styles/modals.css';
+import '../styles/settings.css';
+---
+<Layout>
+	<div class="app-shell settings">
+		<Sidebar />
+
+		<main class="main">
+			<header class="topbar">
+				<div>
+					<h1 id="board-title">Settings</h1>
+				</div>
+				<div class="topbar-actions">
+					<label class="search">
+					    <input type="text" placeholder="Search settings" />
+					</label>
+				</div>
+			</header>
+            <div class="setting">
+                <p></p>
+            </div>
+		</main>
+	</div>
+	<script type="module" src="/js/main.js"></script>
+	<script type="module" src="/js/auth.js"></script>
+	<script type="module" src="/js/modals.js"></script>
+</Layout>

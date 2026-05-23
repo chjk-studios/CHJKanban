@@ -1,0 +1,17 @@
+{
+  "name": "chjkanban-api",
+  "module": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "bun src/main.js",
+    "dev": "bun run --hot src/main.js"
+  },
+  "dependencies": {
+    "better-auth": "^1.6.11",
+    "hono": "^4.12.18"
+  },
+  "devDependencies": {
+    "bun-types": "^1.1.0",
+    "@types/better-sqlite3": "^7.6.11"
+  }
+}

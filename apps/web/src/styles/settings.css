@@ -1,0 +1,13 @@
+.app-shell.settings {
+  grid-template-columns: 240px 1fr;
+}
+
+.setting {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 18px;
+  border-radius: 24px;
+  background: var(--board-bg);
+  border: 1px solid var(--divider);
+}

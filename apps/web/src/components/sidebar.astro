@@ -1,0 +1,44 @@
+---
+import "../styles/sidebar.css";
+import { Icon } from 'astro-icon/components';
+---
+
+<aside class="sidebar">
+    <div class="brand">
+        <img src="/img/logo_color_128x.png" height="32px" width="32px" class="brand-mark" />
+        <div>
+            <p class="brand-title">CHJKanban</p>
+        </div>
+    </div>
+    <nav class="nav" id="nav-links-skeleton">
+        <div class="nav-link-skeleton"></div>
+        <div class="nav-link-skeleton"></div>
+        <div class="nav-link-skeleton"></div>
+    </nav>
+    <nav class="nav" id="nav-links">
+
+    </nav>
+    <div class="sidebar-card" style="opacity: 0;">
+        <p class="sidebar-card-title">Update available!</p>
+        <p class="sidebar-card-body">
+            A new version of CHJKanban is available. Update now to get the latest features and improvements.
+        </p>
+        <button class="btn primary"><Icon name="lucide:download" size=14 /> Update</button>
+    </div>
+    <div class="sidebar-footer" id="sidebarfooter">
+        
+        <p>user@example.com</p>
+        <span class="avatar">YOU</span>
+    </div>
+    <div class="user-menu" id="usermenu">
+        <div style="width: 100%; display: flex; flex-direction: column; gap: 8px; padding: 12px;">
+            <button class="btn"><Icon name="lucide:cog" size=14 /> Settings</button>
+            <button class="btn"><Icon name="lucide:shield-user" size=14 /> Admin</button>
+            <button class="btn"><Icon name="lucide:log-out" size=14 /> Logout</button>
+        </div>
+        <div class="sidebar-footer" id="usermenufooter" style="margin-bottom: 12px; margin-left: 11px; margin-right: 11px;">
+            <p>user@example.com</p>
+            <span class="avatar">YOU</span>
+        </div>
+    </div>
+</aside>

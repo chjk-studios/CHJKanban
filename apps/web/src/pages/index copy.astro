@@ -1,0 +1,170 @@
+---
+import Layout from "../layouts/main.astro";
+import Sidebar from "../components/sidebar.astro";
+import { Icon } from 'astro-icon/components';
+import '../styles/topbar.css';
+import '../styles/modals.css';
+---
+<Layout>
+	<div class="app-shell">
+		<Sidebar />
+
+		<main class="main">
+			<header class="topbar">
+				<div>
+					<h1 id="board-title">Board1</h1>
+				</div>
+				<div class="topbar-actions">
+					<label class="search">
+					<input type="text" placeholder="Search cards" />
+					</label>
+					<button class="btn ghost"><Icon name="lucide:pen-line" size=14 /> Edit</button>
+					<button class="btn primary" data-modal-open="new-card-modal"><Icon name="lucide:list-plus" size=16 /> Add Card</button>
+				</div>
+			</header>
+
+			<section class="board" id="board">
+				<div class="column">
+					<div class="column-header">
+						<div>
+							<p class="column-title">To do</p>
+							<p class="column-meta">6 cards</p>
+						</div>
+						<span class="status-dot todo"></span>
+					</div>
+					<div class="card">
+						<h3>Define onboarding tour copy</h3>
+						<p class="card-body">Draft the first-run walkthrough for the new analytics hub.</p>
+						<div class="card-footer">
+							<div class="avatars">
+							<span class="avatar">ME</span>
+							<span class="avatar">TS</span>
+							</div>
+							<span class="due">Mon</span>
+						</div>
+					</div>
+					<div class="card">
+					<div class="card-header">
+						<span class="pill todo">Research</span>
+						<span class="card-id">#152</span>
+					</div>
+					<h3>Map competitor release cadence</h3>
+					<p class="card-body">Collect timestamps for the last 6 public feature drops.</p>
+					<div class="card-footer">
+						<div class="avatars">
+						<span class="avatar">KP</span>
+						</div>
+						<span class="due">Thu</span>
+					</div>
+					</div>
+				</div>
+
+				<div class="column">
+					<div class="column-header">
+						<div>
+							<p class="column-title">In progress</p>
+							<p class="column-meta">4 cards</p>
+						</div>
+						<span class="status-dot progress"></span>
+					</div>
+					<div class="card">
+						<div class="card-header">
+							<span class="pill progress">Active</span>
+							<span class="card-id">#140</span>
+						</div>
+						<h3>Finalize API rate-limit tiers</h3>
+						<p class="card-body">Define the tier thresholds and error response payloads.</p>
+						<div class="card-footer">
+							<div class="avatars">
+							<span class="avatar">RL</span>
+							<span class="avatar">EW</span>
+							</div>
+							<span class="due">Tue</span>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header">
+							<span class="pill progress">Active</span>
+							<span class="card-id">#145</span>
+						</div>
+						<h3>Refine card metrics view</h3>
+						<p class="card-body">Add per-stage cycle time and blocked insights.</p>
+						<div class="card-footer">
+							<div class="avatars">
+							<span class="avatar">JL</span>
+							</div>
+							<span class="due">Fri</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="column">
+					<div class="column-header">
+					<div>
+						<p class="column-title">Review</p>
+						<p class="column-meta">2 cards</p>
+					</div>
+					<span class="status-dot review"></span>
+					</div>
+					<div class="card">
+					<div class="card-header">
+						<span class="pill review">Attention</span>
+						<span class="card-id">#134</span>
+					</div>
+					<h3>Sign-off release notes</h3>
+					<p class="card-body">Confirm tone and examples for the new AI summaries.</p>
+					<div class="card-footer">
+						<div class="avatars">
+						<span class="avatar">NM</span>
+						<span class="avatar">CA</span>
+						</div>
+						<span class="due">Today</span>
+					</div>
+					</div>
+				</div>
+
+				<div class="column">
+					<div class="column-header">
+					<div>
+						<p class="column-title">Done</p>
+						<p class="column-meta">8 cards</p>
+					</div>
+					<span class="status-dot done"></span>
+					</div>
+					<div class="card">
+					<div class="card-header">
+						<span class="pill done">Shipped</span>
+						<span class="card-id">#121</span>
+					</div>
+					<h3>Launch focus mode</h3>
+					<p class="card-body">Released distraction-free layout for power users.</p>
+					<div class="card-footer">
+						<div class="avatars">
+						<span class="avatar">RB</span>
+						<span class="avatar">TX</span>
+						</div>
+						<span class="due">Done</span>
+					</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+	<div class="modal" id="new-card-modal" data-modal aria-hidden="true">
+		<div class="modal__overlay" data-modal-overlay></div>
+		<div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="new-card-title" tabindex="-1">
+			<div class="modal__header">
+				<h2 class="modal__title" id="new-card-title">New card</h2>
+				<button class="modal__close" data-modal-close aria-label="Close"><Icon name="lucide:square-x" /></button>
+			</div>
+			<div class="modal__body">Your content here.</div>
+			<div class="modal__actions">
+				<button class="btn ghost" data-modal-close><Icon name="lucide:x" size=14 /> Cancel</button>
+				<button class="btn primary"><Icon name="lucide:check" stroke-width="3px" size=14 /> Create</button>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/js/main.js"></script>
+	<script type="module" src="/js/auth.js"></script>
+	<script type="module" src="/js/modals.js"></script>
+</Layout>

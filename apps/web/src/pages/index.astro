@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/main.astro";
+import Sidebar from "../components/sidebar.astro";
+import { Icon } from 'astro-icon/components';
+import '../styles/topbar.css';
+import '../styles/modals.css';
+---
+<Layout>
+	<div class="app-shell">
+		<Sidebar />
+
+		<main class="main">
+			<header class="topbar">
+				<div>
+					<h1 id="board-title">Select a board</h1>
+				</div>
+				<div class="topbar-actions">
+					<label class="search">
+					<input type="text" placeholder="Search cards" />
+					</label>
+					<button class="btn ghost"><Icon name="lucide:pen-line" size=14 /> Edit</button>
+					<button class="btn primary" data-modal-open="new-card-modal"><Icon name="lucide:list-plus" size=16 /> Add Card</button>
+				</div>
+			</header>
+
+			<section class="board" id="board">
+			</section>
+		</main>
+	</div>
+	<div class="modal" id="new-card-modal" data-modal aria-hidden="true">
+		<div class="modal__overlay" data-modal-overlay></div>
+		<div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="new-card-title" tabindex="-1">
+			<div class="modal__header">
+				<h2 class="modal__title" id="new-card-title">New card</h2>
+				<button class="modal__close" data-modal-close aria-label="Close"><Icon name="lucide:square-x" /></button>
+			</div>
+			<div class="modal__body">Your content here.</div>
+			<div class="modal__actions">
+				<button class="btn ghost" data-modal-close><Icon name="lucide:x" size=14 /> Cancel</button>
+				<button class="btn primary"><Icon name="lucide:check" stroke-width="3px" size=14 /> Create</button>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/js/main.js"></script>
+	<script type="module" src="/js/auth.js"></script>
+	<script type="module" src="/js/modals.js"></script>
+	<script type="module" src="/js/sidebar.js"></script>
+</Layout>
