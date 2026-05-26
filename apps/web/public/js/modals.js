@@ -35,7 +35,7 @@ const trapFocus = (modal) => {
 	return () => modal.removeEventListener("keydown", handler);
 };
 
-const openModal = (modal) => {
+export function openModal(modal) {
 	if (!modal || openStack.includes(modal)) return;
 	const panel = modal.querySelector(".modal__panel");
 	const previouslyFocused = document.activeElement;
@@ -53,7 +53,7 @@ const openModal = (modal) => {
 	}
 };
 
-const closeModal = (modal) => {
+export function closeModal(modal) {
 	const index = openStack.findIndex((entry) => entry.modal === modal);
 	if (index === -1) return;
 
@@ -72,7 +72,7 @@ const closeModal = (modal) => {
 	}
 };
 
-const closeTopModal = () => {
+export function closeTopModal() {
 	const last = openStack[openStack.length - 1];
 	if (last) closeModal(last.modal);
 };

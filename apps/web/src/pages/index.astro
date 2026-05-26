@@ -19,7 +19,8 @@ import '../styles/modals.css';
 					<input type="text" placeholder="Search cards" />
 					</label>
 					<button class="btn ghost"><Icon name="lucide:pen-line" size=14 /> Edit</button>
-					<button class="btn primary" data-modal-open="new-card-modal"><Icon name="lucide:list-plus" size=16 /> Add Card</button>
+					<button class="btn primary" data-modal-open="new-card-modal" id="add-card-btn-topbar"><Icon name="lucide:between-horizontal-start" size=16 /> Add Card</button>
+					<button class="btn primary" data-modal-open="new-column-modal"><Icon name="lucide:between-vertical-start" size=16 /> Add Column</button>
 				</div>
 			</header>
 
@@ -27,6 +28,8 @@ import '../styles/modals.css';
 			</section>
 		</main>
 	</div>
+
+
 	<div class="modal" id="new-card-modal" data-modal aria-hidden="true">
 		<div class="modal__overlay" data-modal-overlay></div>
 		<div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="new-card-title" tabindex="-1">
@@ -34,13 +37,72 @@ import '../styles/modals.css';
 				<h2 class="modal__title" id="new-card-title">New card</h2>
 				<button class="modal__close" data-modal-close aria-label="Close"><Icon name="lucide:square-x" /></button>
 			</div>
-			<div class="modal__body">Your content here.</div>
+			<div class="modal__body">
+				<input type="text" id="card-modal-title" style="width: 100%;" class="input" placeholder="Card title" />
+				<select style="width: 100%; margin-top: 10px;" class="input" id="card-modal-column">
+					<option value="" disabled selected>Select column</option>
+				</select>
+				<input type="text" id="card-modal-description" style="width: 100%; margin-top: 10px;" class="input" placeholder="Card description" />
+			</div>
 			<div class="modal__actions">
 				<button class="btn ghost" data-modal-close><Icon name="lucide:x" size=14 /> Cancel</button>
-				<button class="btn primary"><Icon name="lucide:check" stroke-width="3px" size=14 /> Create</button>
+				<button class="btn primary" id="create-new-card-btn"><Icon name="lucide:check" stroke-width="3px" size=14 /> Create</button>
 			</div>
 		</div>
 	</div>
+
+
+	<div class="modal" id="new-column-modal" data-modal aria-hidden="true">
+		<div class="modal__overlay" data-modal-overlay></div>
+		<div class="modal__panel" role="dialog" aria-modal="true" tabindex="-1">
+			<div class="modal__header">
+				<h2 class="modal__title" id="new-column-title">New column</h2>
+				<button class="modal__close" data-modal-close aria-label="Close"><Icon name="lucide:square-x" /></button>
+			</div>
+			<div class="modal__body">
+				<input type="text" id="column-modal-title" style="width: 100%;" class="input" placeholder="Column title" />
+				<select style="width: 100%; margin-top: 10px;" class="input" id="column-modal-type">
+					<option value="" disabled selected>Column type</option>
+					<option value="todo">Todo</option>
+					<option value="progress">In Progress</option>
+					<option value="review">Review</option>
+					<option value="done">Done</option>
+					<option value="blocked">Blocked</option>
+				</select>
+				<input type="number" id="column-modal-position" style="width: 100%; margin-top: 10px;" class="input" placeholder="Column position (default: 0)" />
+			</div>
+			<div class="modal__actions">
+				<button class="btn ghost" data-modal-close><Icon name="lucide:x" size=14 /> Cancel</button>
+				<button class="btn primary" id="create-new-column-btn"><Icon name="lucide:check" stroke-width="3px" size=14 /> Create</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" id="backend-unavailable-modal" data-modal aria-hidden="true">
+		<div class="modal__overlay" data-modal-overlay></div>
+		<div class="modal__panel modal__panel--alert" role="dialog" aria-modal="true" tabindex="-1">
+			<div class="modal__header">
+				<h2 class="modal__title" id="backend-unavailable-title">Backend may be unavailable</h2>
+				<button class="modal__close" data-modal-close aria-label="Close"><Icon name="lucide:square-x" /></button>
+			</div>
+			<div class="modal__body">
+				<div class="modal__alert">
+					<div class="modal__icon" aria-hidden="true">
+						<Icon name="lucide:server-crash" size={28} />
+					</div>
+					<div>
+						<p class="modal__lead">The API is not responding correctly. Boards and cards may not load.</p>
+						<p class="modal__hint">Check the backend service's logs for more information.</p>
+					</div>
+				</div>
+			</div>
+			<div class="modal__actions">
+				<button class="btn ghost" data-modal-close><Icon name="lucide:x" size=14 /> Close</button>
+			</div>
+		</div>
+	</div>
+
+
 	<script type="module" src="/js/main.js"></script>
 	<script type="module" src="/js/auth.js"></script>
 	<script type="module" src="/js/modals.js"></script>

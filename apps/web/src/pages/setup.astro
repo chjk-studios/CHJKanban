@@ -3,6 +3,7 @@ import Layout from "../layouts/main.astro";
 import { Icon } from 'astro-icon/components';
 import { DotPulse } from 'ldrs/react';
 import "../styles/login.css";
+import "../styles/loader.css";
 ---
 <Layout>
 	<div class="login-shell">
@@ -45,4 +46,9 @@ import "../styles/login.css";
 	</div>
 	<script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/dotPulse.js"></script>
 	<script type="module" src="/js/auth.js"></script>
+	<script type="module">
+		import { showLoader } from 'https://cdn.jsdelivr.net/gh/joplayxyz/jalos@latest/jalos.js';
+
+		showLoader(2000, '<div class="loader-idk"><img height="36px" width="36px" src="/img/logo_color_128x.png"><div><h2>CHJKanban</h2><p>VERSION 0.0.1 Alpha</p></div></div>')
+	</script>
 </Layout>

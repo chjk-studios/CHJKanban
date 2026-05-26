@@ -120,8 +120,14 @@
   background: var(--primary);
 }
 
-.sidebar-card {
+.sidebar-cards {
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-card {
   padding: 16px;
   border-radius: 16px;
   background: var(--card-bg);

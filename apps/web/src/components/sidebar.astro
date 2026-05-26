@@ -18,13 +18,22 @@ import { Icon } from 'astro-icon/components';
     <nav class="nav" id="nav-links">
 
     </nav>
-    <div class="sidebar-card" style="opacity: 0;">
-        <p class="sidebar-card-title">Update available!</p>
-        <p class="sidebar-card-body">
-            A new version of CHJKanban is available. Update now to get the latest features and improvements.
-        </p>
-        <button class="btn primary"><Icon name="lucide:download" size=14 /> Update</button>
+    <div class="sidebar-cards">
+        <div class="sidebar-card" id="sidebar-card-backend" style="opacity: 0; display: none;">
+            <p class="sidebar-card-title">Backend issue!</p>
+            <p class="sidebar-card-body">
+                The Backend did not respond correctly. Some features may not work as expected.
+            </p>
+        </div>
+        <div class="sidebar-card" id="sidebar-card-update" style="opacity: 0; display: none;">
+            <p class="sidebar-card-title">Update available!</p>
+            <p class="sidebar-card-body">
+                A new version of CHJKanban is available. Update now to get the latest features and improvements.
+            </p>
+            <button class="btn primary"><Icon name="lucide:download" size=14 /> Update</button>
+        </div>
     </div>
+    
     <div class="sidebar-footer" id="sidebarfooter">
         
         <p>user@example.com</p>
@@ -32,7 +41,7 @@ import { Icon } from 'astro-icon/components';
     </div>
     <div class="user-menu" id="usermenu">
         <div style="width: 100%; display: flex; flex-direction: column; gap: 8px; padding: 12px;">
-            <button class="btn"><Icon name="lucide:cog" size=14 /> Settings</button>
+            <button class="btn" onclick="window.location.href = '/settings'"><Icon name="lucide:cog" size=14 /> Settings</button>
             <button class="btn"><Icon name="lucide:shield-user" size=14 /> Admin</button>
             <button class="btn"><Icon name="lucide:log-out" size=14 /> Logout</button>
         </div>

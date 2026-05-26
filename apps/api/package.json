@@ -1,5 +1,6 @@
 {
   "name": "chjkanban-api",
+  "version": "0.1.0",
   "module": "src/main.js",
   "type": "module",
   "scripts": {
